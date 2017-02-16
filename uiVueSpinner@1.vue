@@ -1,14 +1,26 @@
 <template>
-  <div class="ui-vue-spinner">
-    <div class="ui-vue-spinner-text">Loading</div>
-  </div>
+  <transition name="fade">
+    <div class="ui-vue-spinner" v-if="display">
+      <div class="ui-vue-spinner-text">{{ text }}</div>
+    </div>
+  </transition>
 </template>
 
 <script>
   module.exports = {
+    name: 'uiVueSpinner',
     data: function () {
       return {
-        text: ''
+        text: '加载中',
+        display: false
+      }
+    },
+    methods: {
+      setText: function(text) {
+        this.text = text;
+      },
+      setDisplay: function(display) {
+        this.display = display;
       }
     }
   };
@@ -16,6 +28,15 @@
 
 <style>
   @import "~mixins";
+
+  @include keyframes(ui-vue-spinner) {
+    from {
+      @include rotate(0);
+    }
+    to {
+      @include rotate(360deg);
+    }
+  }
 
   .ui-vue-spinner {
     display: block;
@@ -25,16 +46,26 @@
     width: 100px;
     height: 100px;
     font-size: 16px;
+    line-height: 1.4;
     background-color: rgba(0,0,0,.85);
     @include border-radius(10px);
     @include translate(-50%, -50%);
+
+    &.fade-enter-active, 
+    &.fade-leave-active {
+      @include transition(opacity .5s);
+    }
+    &.fade-enter, 
+    &.fade-leave-active {
+      @include opacity(0);
+    }
 
     > .ui-vue-spinner-text {
       display: block;
       position: absolute;
       top: 50%;
       width: 100%;
-      padding-top: 45px;
+      padding-top: 46px;
       color: rgba(255,255,255,.9);
       @include translate(0, -50%);
 
@@ -44,11 +75,17 @@
         position: absolute;
         top: 0;
         left: 50%;
-        width: 36px;
-        height: 36px;
-        margin-left: -18px;
-        border: 1px solid rgba(0,0,0,.1);
+        width: 34px;
+        height: 34px;
+        margin-left: -17px;
+        border: 2px solid rgba(255,255,255,.15);
         @include border-radius(50%);
+      }
+
+      &:after {
+        border-color: #fff transparent transparent;
+        @include animation(ui-vue-spinner .6s linear);
+        @include animation-iteration-count(infinite);
       }
     }
   }
