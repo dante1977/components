@@ -59,34 +59,34 @@
     &.fade-leave-active {
       @include opacity(0);
     }
+  }
 
-    > .ui-vue-spinner-text {
+  .ui-vue-spinner-text {
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    padding-top: 46px;
+    color: rgba(255,255,255,.9);
+    @include translate(0, -50%);
+
+    &:before, &:after {
       display: block;
+      content: '';
       position: absolute;
-      top: 50%;
-      width: 100%;
-      padding-top: 46px;
-      color: rgba(255,255,255,.9);
-      @include translate(0, -50%);
+      top: 0;
+      left: 50%;
+      width: 34px;
+      height: 34px;
+      margin-left: -17px;
+      border: 2px solid rgba(255,255,255,.15);
+      @include border-radius(50%);
+    }
 
-      &:before, &:after {
-        display: block;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 34px;
-        height: 34px;
-        margin-left: -17px;
-        border: 2px solid rgba(255,255,255,.15);
-        @include border-radius(50%);
-      }
-
-      &:after {
-        border-color: #fff transparent transparent;
-        @include animation(ui-vue-spinner .6s linear);
-        @include animation-iteration-count(infinite);
-      }
+    &:after {
+      border-color: #fff transparent transparent;
+      @include animation(ui-vue-spinner .6s linear);
+      @include animation-iteration-count(infinite);
     }
   }
 </style>
