@@ -43,9 +43,9 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 100px;
-    height: 100px;
-    font-size: 16px;
+    width: 90px;
+    height: 90px;
+    font-size: 14px;
     line-height: 1.4;
     background-color: rgba(0,0,0,.85);
     @include border-radius(10px);
@@ -67,6 +67,7 @@
     top: 50%;
     width: 100%;
     padding-top: 46px;
+    text-align: center;
     color: rgba(255,255,255,.9);
     @include translate(0, -50%);
 
@@ -76,9 +77,9 @@
       position: absolute;
       top: 0;
       left: 50%;
-      width: 34px;
-      height: 34px;
-      margin-left: -17px;
+      width: 32px;
+      height: 32px;
+      margin-left: -16px;
       border: 2px solid rgba(255,255,255,.15);
       @include border-radius(50%);
     }
