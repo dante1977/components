@@ -1,3 +1,4 @@
+// zhengquanbin 2017.2.18
 <template>
   <transition name="fade">
     <div class="ui-vue-modal" v-if="display" @click="handleOuterClick">
@@ -12,7 +13,10 @@
 </template>
 
 <script>
+  var vueComponentsMixins = require('vueComponentsMixins');
+
   module.exports = {
+    mixins: [vueComponentsMixins],
     name: 'uiVueModal',
     data: function () {
       return {

@@ -1,3 +1,4 @@
+// zhengquanbin 2017.2.18
 <template>
   <transition name="fade">
     <div class="ui-vue-spinner" v-if="display">
@@ -7,7 +8,10 @@
 </template>
 
 <script>
+  var vueComponentsMixins = require('vueComponentsMixins');
+
   module.exports = {
+    mixins: [vueComponentsMixins],
     name: 'uiVueSpinner',
     data: function () {
       return {
