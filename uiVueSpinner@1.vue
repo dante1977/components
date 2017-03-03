@@ -1,10 +1,8 @@
 // zhengquanbin 2017.2.18
 <template>
-  <transition name="fade">
-    <div class="ui-vue-spinner" v-if="display">
+  <div class="ui-vue-spinner">
       <div class="ui-vue-spinner-text">{{ text }}</div>
     </div>
-  </transition>
 </template>
 
 <script>
@@ -16,15 +14,11 @@
     data: function () {
       return {
         text: '加载中',
-        display: false
       }
     },
     methods: {
       setText: function(text) {
         this.text = text;
-      },
-      setDisplay: function(display) {
-        this.display = display;
       }
     }
   };
@@ -54,15 +48,6 @@
     background-color: rgba(0,0,0,.85);
     @include border-radius(10px);
     @include translate(-50%, -50%);
-
-    &.fade-enter-active, 
-    &.fade-leave-active {
-      @include transition(opacity .5s);
-    }
-    &.fade-enter, 
-    &.fade-leave-active {
-      @include opacity(0);
-    }
   }
 
   .ui-vue-spinner-text {

@@ -1,15 +1,14 @@
 // zhengquanbin 2017.2.18
 <template>
-  <transition name="fade">
-    <div class="ui-vue-modal" v-if="display" @click="handleOuterClick">
+  <div class="ui-vue-modal" @click="handleOuterClick">
       <div class="ui-vue-modal-dialog">
         <div class="ui-vue-modal-content">
-          <a class="ui-vue-modal-close" @click="handleClickClose">×</a>
+          <a class="ui-vue-modal-close"
+             @click="handleClickClose" v-if="close">×</a>
           <slot></slot>
         </div>
       </div>
     </div>
-  </transition>
 </template>
 
 <script>
@@ -17,21 +16,22 @@
 
   module.exports = {
     mixins: [vueComponentsMixins],
+    props: ['close'],
     name: 'uiVueModal',
     data: function () {
       return {
-        display: false
+      }
+    },
+    created: function () {
+      if(this.close === 'undefined') {
+        this.close = false;
       }
     },
     methods: {
       handleOuterClick: function (event) {
-//        console.log(event.target.contains)
       },
       handleClickClose: function () {
-        this.setDisplay(false);
-      },
-      setDisplay: function(display) {
-        this.display = display;
+//        this.setDisplay(false);
       }
     }
   };
@@ -49,20 +49,12 @@
     height: 100%;
     font-size: 14px;
     background: rgba(0,0,0,.5);
+    z-index: 100;
 
     .ui-vue-modal-dialog {
       display: table-cell;
       vertical-align: middle;
       text-align: center;
-    }
-
-    &.fade-enter-active,
-    &.fade-leave-active {
-     @include transition(opacity .4s);
-     }
-    &.fade-enter,
-    &.fade-leave-active {
-     @include opacity(0);
     }
   }
   .ui-vue-modal-content {
