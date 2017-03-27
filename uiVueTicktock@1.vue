@@ -33,20 +33,26 @@
     created: function () {
       this.initTickTock();
     },
+    beforeDestroy: function () {
+      if (this._intervalid) {
+        clearInterval(this._intervalid);
+      }
+    },
     methods: {
       initTickTock: function () {
+        var self = this;
         if (this._intervalid) {
           clearInterval(this._intervalid);
         }
         this.mySeconds = this.seconds;
         if (this.mySeconds > 0) {
           this._intervalid = setInterval(function () {
-            this.mySeconds -= 1;
-            if (this.mySeconds <= 0) {
-              clearInterval(this._intervalid);
-              this.$emit('ended');
+            self.mySeconds -= 1;
+            if (self.mySeconds <= 0) {
+              clearInterval(self._intervalid);
+              self.$emit('ended');
             }
-          }.bind(this), 1000);
+          }, 1000);
         }
       }
     }

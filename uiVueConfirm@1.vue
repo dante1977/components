@@ -1,6 +1,6 @@
 // zhengquanbin 2017.2.18
 <template>
-  <ui-vue-modal :close="false" class="ui-vue-confirm" v-ref="uiVueModal">
+  <ui-vue-modal :closeable="false" class="ui-vue-confirm">
     <div class="ui-vue-confirm-content">
       <div class="ui-vue-confirm-text">{{ text }}</div>
     </div>

@@ -4,7 +4,7 @@
       <div class="ui-vue-modal-dialog">
         <div class="ui-vue-modal-content">
           <a class="ui-vue-modal-close"
-             @click="handleClickClose" v-if="close">×</a>
+             @click="handleClickClose" v-if="closeable">×</a>
           <slot></slot>
         </div>
       </div>
@@ -12,26 +12,29 @@
 </template>
 
 <script>
+//  var domUtils = require('domUtils');
   var vueComponentsMixins = require('vueComponentsMixins');
 
   module.exports = {
     mixins: [vueComponentsMixins],
-    props: ['close'],
+    props: ['closeable'],
     name: 'uiVueModal',
     data: function () {
       return {
       }
     },
     created: function () {
-      if(this.close === 'undefined') {
-        this.close = false;
+      if(this.closeable === 'undefined') {
+        this.closeable = false;
       }
     },
     methods: {
       handleOuterClick: function (event) {
+//        if (!domUtils.contains(this.$el.getElementsByClassName('ui-vue-modal-content')[0], event.srcElement)) {
+//          console.log(event)
+//        }
       },
       handleClickClose: function () {
-//        this.setDisplay(false);
       }
     }
   };
