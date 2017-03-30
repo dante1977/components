@@ -1,58 +1,58 @@
 import format from '../dateformat'
 
-export function zero (n) {
-  return n < 10 ? '0' + n : n
+export function zero(n) {
+  return n < 10 ? '0' + n : n;
 }
 
-export function splitValue (value) {
-  let split = value.split('-')
+export function splitValue(value) {
+  var split = value.split('-');
   return {
     year: parseInt(split[0], 10),
     month: parseInt(split[1], 10) - 1,
     day: parseInt(split[2], 10)
-  }
+  };
 }
 
-export function getPrevTime (year, month) {
+export function getPrevTime(year, month) {
   if (month === 0) {
     return {
       month: 11,
       year: year - 1
-    }
+    };
   } else {
     return {
-      year,
+      year: year,
       month: month - 1
-    }
+    };
   }
 }
 
-export function getNextTime (year, month) {
+export function getNextTime(year, month) {
   if (month === 11) {
     return {
       month: 0,
       year: year + 1
-    }
+    };
   } else {
     return {
-      year,
+      year: year,
       month: month + 1
-    }
+    };
   }
 }
 
-function getTime (str) {
+function getTime(str) {
   if (typeof str === 'number') {
-    return str
+    return str;
   }
-  return typeof str === 'string' ? new Date(str.replace(/-/g, '/')).getTime() : str.getTime()
+  return typeof str === 'string' ? new Date(str.replace(/-/g, '/')).getTime() : str.getTime();
 }
 
-function isBetween (value, start, end) {
-  value = getTime(value)
-  let isGte = start ? value >= getTime(start) : true
-  let isLte = end ? value <= getTime(end) : true
-  return isGte && isLte
+function isBetween(value, start, end) {
+  value = getTime(value);
+  var isGte = start ? value >= getTime(start) : true;
+  var isLte = end ? value <= getTime(end) : true;
+  return isGte && isLte;
 }
 
 export function getDays(_ref) {
