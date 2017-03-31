@@ -1,3 +1,4 @@
+@import "~mixins";
 @import "../weuiVux/variable";
 
 $weuiCellHeight: 44px;
@@ -12,8 +13,7 @@ $switch-disabled-opacity: 0.6;
     padding-bottom: ($weuiCellHeight - $weuiSwitchHeight) / 2;
 }
 .weui-switch{
-    -webkit-appearance: none;
-    appearance: none;
+    @include appearance(none);
 }
 .weui-switch,
 .weui-switch-cp__box{
