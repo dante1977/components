@@ -14,7 +14,7 @@ import flexbox from 'vuxFlexbox'
 import Manager from './chain'
 
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+//var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 
 export default {
@@ -105,7 +105,7 @@ export default {
       for (var _i = 0; _i < data.length; _i++) {
         var _ret = _loop(_i);
 
-        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+        if (typeof _ret === "object") return _ret.v;
       }
     },
     renderChain: function renderChain(i) {
