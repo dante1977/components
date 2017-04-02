@@ -65,7 +65,7 @@
 </script>
 
 <style>
-  @import '../weuiVux/transition';
-  @import '../weuiVux/weui-mask';
+  @import '~weuiVux/transition';
+  @import '~weuiVux/weui-mask';
   @import './dialog';
 </style>

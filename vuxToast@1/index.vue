@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import SafariFixIssue from '../weuiVux/safari-fix';
+  import SafariFixIssue from 'weuiVux/safari-fix';
 
   export default {
     mixins: [SafariFixIssue],

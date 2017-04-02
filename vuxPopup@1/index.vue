@@ -111,7 +111,7 @@ export default {
 </script>
 
 <style>
-@import '../weuiVux/variable';
+@import '~weuiVux/variable';
 
 .vux-popup-dialog,.vux-popup {
   position: fixed;
