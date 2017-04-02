@@ -42,7 +42,7 @@ export default {
 
 <style>
 @import '~vuxToast/toast';
-@import '~vuxToast/weui-mask';
+@import '~weuiVux/weui-mask';
 @import './loading';
 
 .weui-icon_toast.weui-loading {
